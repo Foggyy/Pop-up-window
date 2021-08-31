@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import TaxButton from "./components/TaxButton";
+import ModalWindow from "./components/ModalWindow";
+import styled from "styled-components";
+import GlobalStyle from "./styles/globalStyle";
+import ModalContent from "./components/ModalContent";
+
+const WelcomeWindow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+`
 
 function App() {
+  const [modalWindowActive, setModalWindowActive] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+          <GlobalStyle/>
+          <WelcomeWindow>
+              <TaxButton onClick={() => setModalWindowActive(true)}/>
+              <ModalWindow active={modalWindowActive} onClick={() => setModalWindowActive(false)}>
+                  <ModalContent onClick={() => setModalWindowActive(false)}/>
+              </ModalWindow>
+          </WelcomeWindow>
+      </div>
   );
 }
 
