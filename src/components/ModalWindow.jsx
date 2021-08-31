@@ -17,7 +17,7 @@ const ModalContainer = styled.div`
 const ModalContentContainer = styled.div`
     padding: 32px 32px 32px 32px;
     width: 60vw;
-    max-height: 80vh;
+    max-height: 90vh;
     max-width: 600px;
     position: relative;
     border-radius: 30px;
